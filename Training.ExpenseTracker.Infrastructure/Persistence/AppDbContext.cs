@@ -93,6 +93,14 @@ public class AppDbContext : DbContext, IAppDbContext
                 .WithMany(u => u.Expenses)
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+            
+            e.Property(x => x.ImageUrl)
+                .HasColumnName("image_url")
+                .HasMaxLength(1000);
+
+            e.Property(x => x.ImageUrlId)
+                .HasColumnName("image_url_id")
+                .HasMaxLength(255);
         });
     }
 }

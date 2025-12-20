@@ -10,10 +10,13 @@ namespace Training.ExpenseTracker.Infrastructure.Security;
 public class ExpenseService : IExpenseService
 {
     private readonly IAppDbContext _db;
+    private readonly IReceiptStorage _receiptStorage;
 
-    public ExpenseService(IAppDbContext db)
+
+    public ExpenseService(IAppDbContext db, IReceiptStorage receiptStorage)
     {
         _db = db;
+        _receiptStorage = receiptStorage;
     }
 
     public async Task<ResponseExpenses> CreateAsync(Guid userId, CreateExpenses request, CancellationToken ct)
@@ -57,79 +60,80 @@ public class ExpenseService : IExpenseService
     }
 
     public async Task<PagedResult<ResponseExpenses>> GetListAsync(Guid userId, GetExpensesRequest request, CancellationToken ct)
-{
-    // Guard
-    var page = request.Page < 1 ? 1 : request.Page;
-    var pageSize = request.PageSize < 1 ? 10 : request.PageSize;
-    if (pageSize > 100) pageSize = 100;
-
-    var query = _db.Expenses
-        .AsNoTracking()
-        .Where(x => x.UserId == userId);
-
-    if (request.From.HasValue)
     {
-        var from = request.From.Value.ToUniversalTime();
-        query = query.Where(x => x.SpendDate >= from);
-    }
+        var page = request.Page < 1 ? 1 : request.Page;
+        var pageSize = request.PageSize < 1 ? 10 : request.PageSize;
+        if (pageSize > 100) pageSize = 100;
 
-    if (request.To.HasValue)
-    {
-        var to = request.To.Value.ToUniversalTime();
-        query = query.Where(x => x.SpendDate <= to);
-    }
+        var query = _db.Expenses
+            .AsNoTracking()
+            .Where(x => x.UserId == userId);
 
-    if (!string.IsNullOrWhiteSpace(request.Category))
-    {
-        var cat = request.Category.Trim();
-        query = query.Where(x => x.Category == cat);
-    }
-
-    if (request.MinAmount.HasValue)
-        query = query.Where(x => x.Amount >= request.MinAmount.Value);
-
-    if (request.MaxAmount.HasValue)
-        query = query.Where(x => x.Amount <= request.MaxAmount.Value);
-
-    query = request.Sort switch
-    {
-        ExpenseSort.SpendDateAsc => query.OrderBy(x => x.SpendDate).ThenByDescending(x => x.CreatedAt),
-        ExpenseSort.SpendDateDesc => query.OrderByDescending(x => x.SpendDate).ThenByDescending(x => x.CreatedAt),
-        ExpenseSort.AmountAsc => query.OrderBy(x => x.Amount).ThenByDescending(x => x.CreatedAt),
-        ExpenseSort.AmountDesc => query.OrderByDescending(x => x.Amount).ThenByDescending(x => x.CreatedAt),
-        ExpenseSort.CreatedAtDesc => query.OrderByDescending(x => x.CreatedAt),
-        _ => query.OrderByDescending(x => x.SpendDate).ThenByDescending(x => x.CreatedAt)
-    };
-
-    var totalItems = await query.CountAsync(ct);
-
-    var items = await query
-        .Skip((page - 1) * pageSize)
-        .Take(pageSize)
-        .Select(x => new ResponseExpenses()
+        if (request.From.HasValue)
         {
-            Id = x.Id,
-            UserId = x.UserId,
-            Amount = x.Amount,
-            Category = x.Category,
-            Note = x.Note,
-            SpendDate = x.SpendDate,
-            CreatedAt = x.CreatedAt,
-            UpdatedAt = x.UpdatedAt
-        })
-        .ToListAsync(ct);
+            var from = request.From.Value.ToUniversalTime();
+            query = query.Where(x => x.SpendDate >= from);
+        }
 
-    var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+        if (request.To.HasValue)
+        {
+            var to = request.To.Value.ToUniversalTime();
+            query = query.Where(x => x.SpendDate <= to);
+        }
 
-    return new PagedResult<ResponseExpenses>
-    {
-        Page = page,
-        PageSize = pageSize,
-        TotalItems = totalItems,
-        TotalPages = totalPages,
-        Items = items
-    };
-}
+        if (!string.IsNullOrWhiteSpace(request.Category))
+        {
+            var cat = request.Category.Trim();
+            query = query.Where(x => x.Category == cat);
+        }
+
+        if (request.MinAmount.HasValue)
+            query = query.Where(x => x.Amount >= request.MinAmount.Value);
+
+        if (request.MaxAmount.HasValue)
+            query = query.Where(x => x.Amount <= request.MaxAmount.Value);
+
+        query = request.Sort switch
+        {
+            ExpenseSort.SpendDateAsc => query.OrderBy(x => x.SpendDate).ThenByDescending(x => x.CreatedAt),
+            ExpenseSort.SpendDateDesc => query.OrderByDescending(x => x.SpendDate).ThenByDescending(x => x.CreatedAt),
+            ExpenseSort.AmountAsc => query.OrderBy(x => x.Amount).ThenByDescending(x => x.CreatedAt),
+            ExpenseSort.AmountDesc => query.OrderByDescending(x => x.Amount).ThenByDescending(x => x.CreatedAt),
+            ExpenseSort.CreatedAtDesc => query.OrderByDescending(x => x.CreatedAt),
+            _ => query.OrderByDescending(x => x.SpendDate).ThenByDescending(x => x.CreatedAt)
+        };
+
+        var totalItems = await query.CountAsync(ct);
+
+        var items = await query
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .Select(x => new ResponseExpenses()
+            {
+                Id = x.Id,
+                UserId = x.UserId,
+                Amount = x.Amount,
+                Category = x.Category,
+                Note = x.Note,
+                SpendDate = x.SpendDate,
+                CreatedAt = x.CreatedAt,
+                UpdatedAt = x.UpdatedAt,
+                ImageUrl = x.ImageUrl,
+                ImageUrlId = x.ImageUrlId
+            })
+            .ToListAsync(ct);
+
+        var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+        return new PagedResult<ResponseExpenses>
+        {
+            Page = page,
+            PageSize = pageSize,
+            TotalItems = totalItems,
+            TotalPages = totalPages,
+            Items = items
+        };
+    }
 
     
     public async Task<ResponseExpenses?> GetByIdAsync(Guid userId, Guid expenseId, CancellationToken ct)
@@ -146,7 +150,9 @@ public class ExpenseService : IExpenseService
                 Note = x.Note,
                 SpendDate = x.SpendDate,
                 CreatedAt = x.CreatedAt,
-                UpdatedAt = x.UpdatedAt
+                UpdatedAt = x.UpdatedAt,
+                ImageUrl = x.ImageUrl,
+                ImageUrlId = x.ImageUrlId
             })
             .FirstOrDefaultAsync(ct);
     }
@@ -333,5 +339,56 @@ public class ExpenseService : IExpenseService
 
         var fileName = $"expenses_{DateTime.UtcNow:yyyyMMdd_HHmmss}.csv";
         return (bytes, fileName);
+    }
+
+    public async Task<ResponseExpenses?> UploadImageAsync(
+        Guid userId,
+        Guid expenseId,
+        Stream fileStream,
+        string fileName,
+        string contentType,
+        long length,
+        CancellationToken ct)
+    {
+        var allowed = new[] { "image/jpeg", "image/png", "image/webp" };
+        if (!allowed.Contains(contentType))
+            throw new ArgumentException("Chỉ nhận jpg/png/webp.");
+
+        if (length <= 0)
+            throw new ArgumentException("File rỗng.");
+
+        if (length > 5 * 1024 * 1024)
+            throw new ArgumentException("File tối đa 5MB.");
+
+        var entity = await _db.Expenses
+            .FirstOrDefaultAsync(x => x.Id == expenseId && x.UserId == userId, ct);
+
+        if (entity is null)
+            return null;
+
+        var (url, publicId) = await _receiptStorage.UploadAsync(fileStream, fileName, ct);
+
+        if (!string.IsNullOrWhiteSpace(entity.ImageUrlId))
+            await _receiptStorage.DeleteAsync(entity.ImageUrlId, ct);
+
+        entity.ImageUrl = url;
+        entity.ImageUrlId = publicId;
+        entity.UpdatedAt = DateTime.UtcNow;
+
+        await _db.SaveChangesAsync(ct);
+
+        return new ResponseExpenses
+        {
+            Id = entity.Id,
+            UserId = entity.UserId,
+            Amount = entity.Amount,
+            Category = entity.Category,
+            Note = entity.Note,
+            SpendDate = entity.SpendDate,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageUrl = entity.ImageUrl,
+            ImageUrlId = entity.ImageUrlId
+        };
     }
 }

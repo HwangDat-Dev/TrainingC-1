@@ -182,4 +182,40 @@ public class ExpensesController : ControllerBase
             fileDownloadName: fileName
         );
     }
+    
+    [HttpPost("{id:guid}/image/upload")]
+    [Consumes("multipart/form-data")]
+    public async Task<ActionResult<ResponseExpenses>> UploadImage(
+        Guid id,
+        IFormFile file,
+        CancellationToken ct)
+    {
+        if (file == null || file.Length == 0)
+            return BadRequest(new { message = "Vui lòng chọn file." });
+
+        var userId = GetUserIdFromJwt();
+
+        try
+        {
+            await using var stream = file.OpenReadStream();
+
+            var result = await _expenseService.UploadImageAsync(
+                userId,
+                id,
+                stream,
+                file.FileName,
+                file.ContentType,
+                file.Length,
+                ct);
+
+            if (result is null)
+                return NotFound(new { message = "Expense not found." });
+
+            return Ok(result);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
 }       

@@ -18,4 +18,8 @@ public class Expense
     public DateTime? UpdatedAt { get; set; }
 
     public User? User { get; set; }
+    
+    public string? ImageUrl { get; set; }
+    public string? ImageUrlId { get; set; }
+
 }

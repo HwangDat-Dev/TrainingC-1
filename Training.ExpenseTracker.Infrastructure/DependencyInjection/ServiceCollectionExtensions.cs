@@ -1,9 +1,11 @@
+using CloudinaryDotNet;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Training.ExpenseTracker.Application.Interfaces;
 using Training.ExpenseTracker.Infrastructure.Persistence;
 using Training.ExpenseTracker.Infrastructure.Security;
+using Training.ExpenseTracker.Infrastructure.Storage;
 
 namespace Training.ExpenseTracker.Infrastructure.DependencyInjection;
 
@@ -21,6 +23,16 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IExpenseService, ExpenseService>();
+        
+        
+        var cloudinarySection = config.GetSection("Cloudinary");
+
+        var cloudinaryUrl = config["Cloudinary:CloudinaryUrl"];
+        var cloudinary = new Cloudinary(cloudinaryUrl);
+        cloudinary.Api.Secure = true;
+
+        services.AddSingleton(cloudinary);
+        services.AddScoped<IReceiptStorage, CloudinaryReceiptStorage>();
         return services;
     }
 }

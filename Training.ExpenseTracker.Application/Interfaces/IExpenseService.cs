@@ -19,4 +19,6 @@ public interface IExpenseService
     Task<ExpenseSummaryResponse> GetSummaryAsync(Guid userId, DateTime? from, DateTime? to, CancellationToken ct); 
     
     Task<(byte[] Content, string FileName)> ExportCSV(Guid userId, GetExpensesRequest request, CancellationToken ct);
+    
+    Task<ResponseExpenses?> UploadImageAsync(Guid userId, Guid expenseId, Stream fileStream, string fileName, string contentType, long length, CancellationToken ct);
 }
