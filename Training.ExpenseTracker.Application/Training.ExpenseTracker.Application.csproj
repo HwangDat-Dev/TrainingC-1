@@ -11,11 +11,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DTO\Expenses\" />
-      <Folder Include="Features\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.22" />
     </ItemGroup>
 

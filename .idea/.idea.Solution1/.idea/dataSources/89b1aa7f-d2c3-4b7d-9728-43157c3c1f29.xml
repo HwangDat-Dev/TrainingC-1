@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.54">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G
-29147||-9223372036854775808|c|G
+      <Grants>29147||-9223372036854775808|c|G
 29147||10|c|G
 29147||26266|c|G
 29147||10|C|G
@@ -19,7 +11,7 @@
 29147||-9223372036854775808|T|G
 29147||10|T|G
 29147||26266|T|G</Grants>
-      <IntrospectionStateNumber>3153</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3158</IntrospectionStateNumber>
       <ServerVersion>18.0</ServerVersion>
       <StartupTime>1764238959</StartupTime>
       <TimeZones>true ACDT
@@ -826,7 +818,7 @@ false Zulu
 13674||10|C|G
 13674||-9223372036854775808|U|G
 13674||10|U|G</Grants>
-      <IntrospectionStateNumber>3153</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3158</IntrospectionStateNumber>
       <ObjectId>29147</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4368,11 +4360,11 @@ false Zulu
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <LastIntrospectionL1Xid>3153</LastIntrospectionL1Xid>
-      <LastIntrospectionL2Xid>3153</LastIntrospectionL2Xid>
-      <LastIntrospectionL3Xid>3153</LastIntrospectionL3Xid>
+      <LastIntrospectionL1Xid>3158</LastIntrospectionL1Xid>
+      <LastIntrospectionL2Xid>3158</LastIntrospectionL2Xid>
+      <LastIntrospectionL3Xid>3158</LastIntrospectionL3Xid>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-12-20.16:02:59</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-12-20.16:23:56</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>546</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4494,252 +4486,261 @@ false Zulu
       <LanguageName>c</LanguageName>
       <OwnerName>postgres</OwnerName>
     </routine>
-    <table id="287" parent="276" name="expenses">
+    <table id="287" parent="276" name="__EFMigrationsHistory">
       <DetailsLevel>2</DetailsLevel>
-      <ObjectId>29177</ObjectId>
-      <StateNumber>3140</StateNumber>
+      <ObjectId>29205</ObjectId>
+      <StateNumber>3155</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="288" parent="276" name="users">
+    <table id="288" parent="276" name="expenses">
       <DetailsLevel>2</DetailsLevel>
-      <ObjectId>29160</ObjectId>
-      <StateNumber>3147</StateNumber>
+      <ObjectId>29225</ObjectId>
+      <StateNumber>3156</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <argument id="289" parent="277">
+    <table id="289" parent="276" name="users">
+      <DetailsLevel>2</DetailsLevel>
+      <ObjectId>29212</ObjectId>
+      <StateNumber>3156</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <argument id="290" parent="277">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="290" parent="278">
+    <argument id="291" parent="278">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="291" parent="279">
+    <argument id="292" parent="279">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="292" parent="279" name="namespace">
+    <argument id="293" parent="279" name="namespace">
       <Position>1</Position>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="293" parent="279" name="name">
+    <argument id="294" parent="279" name="name">
       <Position>2</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="294" parent="280">
+    <argument id="295" parent="280">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="295" parent="281">
+    <argument id="296" parent="281">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="296" parent="281" name="namespace">
+    <argument id="297" parent="281" name="namespace">
       <Position>1</Position>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="297" parent="281" name="name">
+    <argument id="298" parent="281" name="name">
       <Position>2</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="298" parent="282">
+    <argument id="299" parent="282">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="299" parent="283">
+    <argument id="300" parent="283">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="300" parent="284">
+    <argument id="301" parent="284">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="301" parent="285">
+    <argument id="302" parent="285">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="302" parent="286">
+    <argument id="303" parent="286">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <check id="303" parent="287" name="ck_expenses_amount">
-      <ColNames>amount</ColNames>
-      <ObjectId>29182</ObjectId>
-      <Predicate>amount &gt; (0)::numeric</Predicate>
-      <StateNumber>3140</StateNumber>
-    </check>
-    <column id="304" parent="287" name="id">
-      <DefaultExpression>uuid_generate_v4()</DefaultExpression>
+    <column id="304" parent="287" name="MigrationId">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>3140</StateNumber>
-      <StoredType>uuid|0s</StoredType>
-      <TypeId>2950</TypeId>
+      <StateNumber>3155</StateNumber>
+      <StoredType>varchar(150)|0s</StoredType>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="305" parent="287" name="user_id">
+    <column id="305" parent="287" name="ProductVersion">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>3140</StateNumber>
-      <StoredType>uuid|0s</StoredType>
-      <TypeId>2950</TypeId>
-    </column>
-    <column id="306" parent="287" name="amount">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>3140</StateNumber>
-      <StoredType>numeric(18,2 digit)|0s</StoredType>
-      <TypeId>1700</TypeId>
-    </column>
-    <column id="307" parent="287" name="category">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>3140</StateNumber>
-      <StoredType>varchar(50)|0s</StoredType>
+      <StateNumber>3155</StateNumber>
+      <StoredType>varchar(32)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="308" parent="287" name="note">
-      <Position>5</Position>
-      <StateNumber>3140</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="309" parent="287" name="spend_date">
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-      <StateNumber>3140</StateNumber>
-      <StoredType>timestamp with time zone|0s</StoredType>
-      <TypeId>1184</TypeId>
-    </column>
-    <column id="310" parent="287" name="created_at">
-      <DefaultExpression>now()</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-      <StateNumber>3140</StateNumber>
-      <StoredType>timestamp with time zone|0s</StoredType>
-      <TypeId>1184</TypeId>
-    </column>
-    <column id="311" parent="287" name="updated_at">
-      <Position>8</Position>
-      <StateNumber>3140</StateNumber>
-      <StoredType>timestamp with time zone|0s</StoredType>
-      <TypeId>1184</TypeId>
-    </column>
-    <foreign-key id="312" parent="287" name="fk_expenses_user">
-      <ColNames>user_id</ColNames>
-      <ObjectId>29191</ObjectId>
-      <OnDelete>cascade</OnDelete>
-      <StateNumber>3140</StateNumber>
-      <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>29160</RefTableId>
-    </foreign-key>
-    <index id="313" parent="287" name="expenses_pkey">
-      <ColNames>id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>29189</ObjectId>
+    <index id="306" parent="287" name="PK___EFMigrationsHistory">
+      <ColNames>MigrationId</ColNames>
+      <ObjectId>29210</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>3140</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="314" parent="287" name="idx_expenses_user_spenddate">
-      <ColNames>user_id
-spend_date</ColNames>
-      <ObjectId>29197</ObjectId>
-      <ReverseColNames>spend_date</ReverseColNames>
-      <StateNumber>3141</StateNumber>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="315" parent="287" name="idx_expenses_user">
-      <ColNames>user_id</ColNames>
-      <ObjectId>29196</ObjectId>
-      <StateNumber>3141</StateNumber>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="316" parent="287" name="expenses_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>29190</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>3140</StateNumber>
-      <UnderlyingIndexId>29189</UnderlyingIndexId>
-    </key>
-    <column id="317" parent="288" name="id">
-      <DefaultExpression>uuid_generate_v4()</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>3139</StateNumber>
-      <StoredType>uuid|0s</StoredType>
-      <TypeId>2950</TypeId>
-    </column>
-    <column id="318" parent="288" name="username">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StateNumber>3139</StateNumber>
-      <StoredType>varchar(50)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="319" parent="288" name="password_hash">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StateNumber>3139</StateNumber>
-      <StoredType>text|0s</StoredType>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="320" parent="288" name="role">
-      <DefaultExpression>&apos;User&apos;::character varying</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>3139</StateNumber>
-      <StoredType>varchar(20)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="321" parent="288" name="created_at">
-      <DefaultExpression>now()</DefaultExpression>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>3139</StateNumber>
-      <StoredType>timestamp with time zone|0s</StoredType>
-      <TypeId>1184</TypeId>
-    </column>
-    <column id="322" parent="288" name="updated_at">
-      <Position>6</Position>
-      <StateNumber>3147</StateNumber>
-      <StoredType>timestamp with time zone|0s</StoredType>
-      <TypeId>1184</TypeId>
-    </column>
-    <index id="323" parent="288" name="users_pkey">
-      <ColNames>id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>29173</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>3139</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <index id="324" parent="288" name="users_username_key">
-      <ColNames>username</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>29175</ObjectId>
-      <StateNumber>3139</StateNumber>
+      <StateNumber>3155</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="325" parent="288" name="users_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>29174</ObjectId>
+    <key id="307" parent="287" name="PK___EFMigrationsHistory">
+      <ObjectId>29211</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>3139</StateNumber>
-      <UnderlyingIndexId>29173</UnderlyingIndexId>
+      <StateNumber>3155</StateNumber>
+      <UnderlyingIndexId>29210</UnderlyingIndexId>
     </key>
-    <key id="326" parent="288" name="users_username_key">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>29176</ObjectId>
-      <StateNumber>3139</StateNumber>
-      <UnderlyingIndexId>29175</UnderlyingIndexId>
+    <column id="308" parent="288" name="id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
+    </column>
+    <column id="309" parent="288" name="user_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
+    </column>
+    <column id="310" parent="288" name="amount">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>numeric(18,2 digit)|0s</StoredType>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="311" parent="288" name="category">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>varchar(50)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="312" parent="288" name="note">
+      <Position>5</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>varchar(255)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="313" parent="288" name="spend_date">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>timestamp with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="314" parent="288" name="created_at">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>timestamp with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="315" parent="288" name="updated_at">
+      <Position>8</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>timestamp with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <foreign-key id="316" parent="288" name="FK_expenses_users_user_id">
+      <ColNames>user_id</ColNames>
+      <ObjectId>29236</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>3156</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>29212</RefTableId>
+    </foreign-key>
+    <index id="317" parent="288" name="PK_expenses">
+      <ColNames>id</ColNames>
+      <ObjectId>29234</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>3156</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="318" parent="288" name="IX_expenses_user_id">
+      <ColNames>user_id</ColNames>
+      <ObjectId>29241</ObjectId>
+      <StateNumber>3156</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="319" parent="288" name="PK_expenses">
+      <ObjectId>29235</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>3156</StateNumber>
+      <UnderlyingIndexId>29234</UnderlyingIndexId>
+    </key>
+    <column id="320" parent="289" name="id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
+    </column>
+    <column id="321" parent="289" name="username">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>varchar(50)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="322" parent="289" name="password_hash">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>text|0s</StoredType>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="323" parent="289" name="role">
+      <DefaultExpression>&apos;User&apos;::character varying</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>varchar(20)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="324" parent="289" name="created_at">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>timestamp with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="325" parent="289" name="updated_at">
+      <Position>6</Position>
+      <StateNumber>3156</StateNumber>
+      <StoredType>timestamp with time zone|0s</StoredType>
+      <TypeId>1184</TypeId>
+    </column>
+    <index id="326" parent="289" name="PK_users">
+      <ColNames>id</ColNames>
+      <ObjectId>29223</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>3156</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="327" parent="289" name="IX_users_username">
+      <ColNames>username</ColNames>
+      <ObjectId>29242</ObjectId>
+      <StateNumber>3156</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="328" parent="289" name="PK_users">
+      <ObjectId>29224</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>3156</StateNumber>
+      <UnderlyingIndexId>29223</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

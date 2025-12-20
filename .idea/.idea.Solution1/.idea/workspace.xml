@@ -15,26 +15,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8232460c-de35-4559-bfb5-bc38854aabcf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/data_source_mapping.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/queries/Query.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/AuthInfoResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/AuthResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/LoginRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/RegisterRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IAppDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IAuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Domain/Entities/Expense.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Domain/Entities/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/DependencyInjection/ServiceCollectionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Persistence/AppDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Security/AuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Security/JwtSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/Auth/AuthController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Training.ExpenseTracker.WebApi.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/CreateExpenses.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/ExpenseSort.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/GetExpensesRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/ResponseExpenses.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/UpdateExpenses.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/PagedResult.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IExpenseService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Services/ExpenseService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/ExpensesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/dataSources/89b1aa7f-d2c3-4b7d-9728-43157c3c1f29.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/dataSources/89b1aa7f-d2c3-4b7d-9728-43157c3c1f29.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/dataSources/89b1aa7f-d2c3-4b7d-9728-43157c3c1f29/storage_v2/_src_/database/training1.lxLxNQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/dataSources/89b1aa7f-d2c3-4b7d-9728-43157c3c1f29/storage_v2/_src_/database/training1.lxLxNQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.Application/Training.ExpenseTracker.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/Training.ExpenseTracker.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.Domain/Training.ExpenseTracker.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Domain/Training.ExpenseTracker.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/DependencyInjection/ServiceCollectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/DependencyInjection/ServiceCollectionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Security/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Services/AuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Security/JwtSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Services/JwtSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/Auth/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Training.ExpenseTracker.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Training.ExpenseTracker.WebApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,15 +63,24 @@
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/AuthResponse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/LoginRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/RegisterRequest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/CreateExpenses.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/ExpenseSort.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/GetExpensesRequest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/ResponseExpenses.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/UpdateExpenses.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/PagedResult.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IAppDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IAuthService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IExpenseService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Domain/Entities/Expense.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Domain/Entities/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/DependencyInjection/ServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Persistence/AppDbContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Security/AuthService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Security/JwtSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/Auth/AuthController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Services/AuthService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Services/ExpenseService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Services/JwtSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/AuthController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/ExpensesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.WebApi/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
@@ -101,7 +110,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/hoangdat/Raffles/LuyenTap/Solution1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -256,7 +265,7 @@
       <workItem from="1765967613960" duration="1180000" />
       <workItem from="1765986226699" duration="4962000" />
       <workItem from="1766021869999" duration="28260000" />
-      <workItem from="1766239472558" duration="2603000" />
+      <workItem from="1766239472558" duration="9435000" />
     </task>
     <servers />
   </component>

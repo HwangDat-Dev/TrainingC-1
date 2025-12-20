@@ -20,7 +20,7 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
         services.AddScoped<IAuthService, AuthService>();
-
+        services.AddScoped<IExpenseService, ExpenseService>();
         return services;
     }
 }
