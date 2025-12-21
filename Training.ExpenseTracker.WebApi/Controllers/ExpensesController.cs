@@ -209,7 +209,7 @@ public class ExpensesController : ControllerBase
                 ct);
 
             if (result is null)
-                return NotFound(new { message = "Expense not found." });
+                return NotFound(new { message = "Không tìm thấy chi phí" });
 
             return Ok(result);
         }

@@ -37,7 +37,7 @@ public class CloudinaryReceiptStorage : IReceiptStorage
         var result = await _cloudinary.UploadAsync(uploadParams);
 
         if (result.StatusCode != System.Net.HttpStatusCode.OK && result.StatusCode != System.Net.HttpStatusCode.Created)
-            throw new Exception($"Upload failed: {result.Error?.Message}");
+            throw new Exception($"Lỗi tải: {result.Error?.Message}");
 
         return (result.SecureUrl.ToString(), result.PublicId);
     }
