@@ -15,7 +15,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8232460c-de35-4559-bfb5-bc38854aabcf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.Application/Training.ExpenseTracker.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/Training.ExpenseTracker.Application.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/UploadImageExpense/AddReceiptImageToExpenseCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/UploadImageExpense/AddReceiptImageToExpenseCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/DependencyInjection/ServiceCollectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/DependencyInjection/ServiceCollectionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/ExpensesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/ExpensesController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +33,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7251332172874514a20c63ec4b4c71aa26ae20/68/b720b33c/DbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/94e5a9ba04d74002870fbeeec71ff78cc7e00/b0/60b72e95/CancellationToken.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9efc724329ab415f9a4af6b465bba4d6f918/2b/fbc23ccd/ServiceCollectionServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/12d4c69399dd4d8f812bb20ab56b406115800/_065bf/ClaimTypes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1b445ceb1c5ab1d07b7b55412b10a5e21169ec87228ca8ad8a18a6982f3278/ControllerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ebffcd2ab98c3abdcb6c2c350fb49783e75ae2d26c32d1ab7d87c9e84e4/JwtSecurityToken.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/abba3fdd9bde0e8b03acab8b2fda88d975e47fde10f07d56f73cdab4079dd/JwtRegisteredClaimNames.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Abstractions/ICommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Abstractions/IQueryHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/AuthInfoResponse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/AuthResponse.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Auth/LoginRequest.cs" root0="FORCE_HIGHLIGHTING" />
@@ -46,19 +54,32 @@
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/UpdateExpenses.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/Expenses/UpdateImageExpense.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/DTO/PagedResult.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/CreateExpense/CreateExpenseCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/CreateExpense/CreateExpenseCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/DeleteExpense/DeleteExpenseCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/DeleteExpense/DeleteExpenseCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/UpdateExpense/UpdateExpenseCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/UpdateExpense/UpdateExpenseCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/UploadImageExpense/AddReceiptImageToExpenseCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Commands/UploadImageExpense/AddReceiptImageToExpenseCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Query/GetExpenseById/GetExpenseByIdQuery.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Query/GetExpenseById/GetExpenseByIdQueryHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Query/GetExpenseSummary/GetExpenseSummaryQuery.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Query/GetExpenseSummary/GetExpenseSummaryQueryHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Query/GetExpenses/GetExpensesQuery.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Features/Expenses/Query/GetExpenses/GetExpensesQueryHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IAppDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IAuthService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IExpenseService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Application/Interfaces/IReceiptStorage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Domain/Entities/Expense.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/hoangdat/Raffles/LuyenTap/Solution1/Training.ExpenseTracker.Domain/Entities/Expense.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Domain/Entities/User.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Configuration/CloudinaryReceiptStorage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Configuration/JwtSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/DependencyInjection/ServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Persistence/AppDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Services/AuthService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Services/ExpenseService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Services/JwtSettings.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.Infrastructure/Storage/CloudinaryReceiptStorage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/AuthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Controllers/ExpensesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -82,30 +103,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.WebApplication1: http.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/hoangdat/Raffles/LuyenTap/Solution1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.WebApplication1: http.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hoangdat/Raffles/LuyenTap/Solution1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebApplication1: http">
     <configuration name="Training.ExpenseTracker.Application: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Training.ExpenseTracker.Application/Training.ExpenseTracker.Application.csproj" />
@@ -248,6 +269,7 @@
       <workItem from="1766021869999" duration="28260000" />
       <workItem from="1766239472558" duration="15588000" />
       <workItem from="1766259942502" duration="95000" />
+      <workItem from="1766396752032" duration="664000" />
     </task>
     <servers />
   </component>

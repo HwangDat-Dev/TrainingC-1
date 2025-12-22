@@ -6,6 +6,7 @@ using Training.ExpenseTracker.Application.DTO.Expenses;
 using Training.ExpenseTracker.Application.Features.Expenses.Commands.CreateExpense;
 using Training.ExpenseTracker.Application.Features.Expenses.Commands.DeleteExpense;
 using Training.ExpenseTracker.Application.Features.Expenses.Commands.UpdateExpense;
+using Training.ExpenseTracker.Application.Features.Expenses.Commands.UploadImageExpense;
 using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseById;
 using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenses;
 using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseSummary;
@@ -158,5 +159,35 @@ public class ExpensesController : ControllerBase
         if (string.IsNullOrWhiteSpace(raw) || !Guid.TryParse(raw, out var userId))
             throw new UnauthorizedAccessException("Không tìm thấy User Idd");
         return userId;
+    }
+    
+    [HttpPost("{id:guid}/image/upload")]
+    [Consumes("multipart/form-data")]
+    public async Task<ActionResult<ResponseExpenses>> UploadImage(
+        Guid id,
+        IFormFile file,
+        [FromServices] AddReceiptImageToExpenseCommandHandler handler,
+        CancellationToken ct)
+    {
+        if (file == null || file.Length == 0)
+            return BadRequest(new { message = "Vui lòng chọn file." });
+
+        var userId = GetUserIdFromJwt();
+
+        await using var stream = file.OpenReadStream();
+
+        try
+        {
+            var result = await handler.Handle(
+                new AddReceiptImageToExpenseCommand(userId, id, stream, file.FileName),
+                ct
+            );
+
+            return Ok(result);
+        }
+        catch (ArgumentException ex)
+        {
+            return NotFound(new { message = ex.Message });
+        }
     }
 }     

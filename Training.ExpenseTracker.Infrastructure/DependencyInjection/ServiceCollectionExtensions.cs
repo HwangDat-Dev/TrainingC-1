@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Training.ExpenseTracker.Application.Features.Expenses.Commands.CreateExpense;
 using Training.ExpenseTracker.Application.Features.Expenses.Commands.DeleteExpense;
 using Training.ExpenseTracker.Application.Features.Expenses.Commands.UpdateExpense;
+using Training.ExpenseTracker.Application.Features.Expenses.Commands.UploadImageExpense;
 using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseById;
 using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenses;
 using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseSummary;
@@ -36,6 +37,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<GetExpenseByIdQueryHandler>();
         services.AddScoped<GetExpensesQueryHandler>();
         services.AddScoped<GetExpenseSummaryQueryHandler>();
+        services.AddScoped<AddReceiptImageToExpenseCommandHandler>();
+
 
         
         var cloudinarySection = config.GetSection("Cloudinary");
