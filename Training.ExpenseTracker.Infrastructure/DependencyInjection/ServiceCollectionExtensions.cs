@@ -2,6 +2,12 @@ using CloudinaryDotNet;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Training.ExpenseTracker.Application.Features.Expenses.Commands.CreateExpense;
+using Training.ExpenseTracker.Application.Features.Expenses.Commands.DeleteExpense;
+using Training.ExpenseTracker.Application.Features.Expenses.Commands.UpdateExpense;
+using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseById;
+using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenses;
+using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseSummary;
 using Training.ExpenseTracker.Application.Interfaces;
 using Training.ExpenseTracker.Infrastructure.Persistence;
 using Training.ExpenseTracker.Infrastructure.Security;
@@ -22,8 +28,15 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
         services.AddScoped<IAuthService, AuthService>();
-        services.AddScoped<IExpenseService, ExpenseService>();
+        // services.AddScoped<IExpenseService, ExpenseService>();
         
+        services.AddScoped<CreateExpenseCommandHandler>();
+        services.AddScoped<UpdateExpenseCommandHandler>();
+        services.AddScoped<DeleteExpenseCommandHandler>();
+        services.AddScoped<GetExpenseByIdQueryHandler>();
+        services.AddScoped<GetExpensesQueryHandler>();
+        services.AddScoped<GetExpenseSummaryQueryHandler>();
+
         
         var cloudinarySection = config.GetSection("Cloudinary");
 
