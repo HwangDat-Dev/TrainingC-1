@@ -9,9 +9,9 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Commands.CreateE
 public sealed class CreateExpenseCommandHandler
     : ICommandHandler<CreateExpenseCommand, ResponseExpenses>
 {
-    private readonly IAppDbContext _db;
+    private readonly IWriteDbContext _db;
 
-    public CreateExpenseCommandHandler(IAppDbContext db)
+    public CreateExpenseCommandHandler(IWriteDbContext db)
     {
         _db = db;
     }

@@ -7,9 +7,9 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Commands.DeleteE
 public sealed class DeleteExpenseCommandHandler
     : ICommandHandler<DeleteExpenseCommand, bool>
 {
-    private readonly IAppDbContext _db;
+    private readonly IWriteDbContext _db;
 
-    public DeleteExpenseCommandHandler(IAppDbContext db)
+    public DeleteExpenseCommandHandler(IWriteDbContext db)
     {
         _db = db;
     }

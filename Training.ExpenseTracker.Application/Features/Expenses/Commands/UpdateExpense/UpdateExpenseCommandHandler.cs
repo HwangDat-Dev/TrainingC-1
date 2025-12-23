@@ -8,9 +8,9 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Commands.UpdateE
 public sealed class UpdateExpenseCommandHandler
     : ICommandHandler<UpdateExpenseCommand, ResponseExpenses>
 {
-    private readonly IAppDbContext _db;
+    private readonly IWriteDbContext _db;
 
-    public UpdateExpenseCommandHandler(IAppDbContext db)
+    public UpdateExpenseCommandHandler(IWriteDbContext db)
     {
         _db = db;
     }

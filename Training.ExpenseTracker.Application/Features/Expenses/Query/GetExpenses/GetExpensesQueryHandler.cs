@@ -9,9 +9,9 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpense
 public sealed class GetExpensesQueryHandler
     : IQueryHandler<GetExpensesQuery, PagedResult<ResponseExpenses>>
 {
-    private readonly IAppDbContext _db;
+    private readonly IReadDbContext _db;
 
-    public GetExpensesQueryHandler(IAppDbContext db)
+    public GetExpensesQueryHandler(IReadDbContext db)
     {
         _db = db;
     }

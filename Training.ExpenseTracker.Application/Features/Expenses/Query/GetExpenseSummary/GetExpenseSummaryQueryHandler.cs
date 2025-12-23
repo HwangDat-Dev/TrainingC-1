@@ -6,9 +6,9 @@ using Training.ExpenseTracker.Application.Interfaces;
 namespace Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseSummary;
 
 public sealed class GetExpenseSummaryQueryHandler : IQueryHandler<GetExpenseSummaryQuery, ExpenseSummaryResponse> {
-    private readonly IAppDbContext _db;
+    private readonly IReadDbContext _db;
 
-    public GetExpenseSummaryQueryHandler(IAppDbContext db)
+    public GetExpenseSummaryQueryHandler(IReadDbContext db)
     {
         _db = db;
     }

@@ -8,10 +8,10 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Commands.UploadI
 public sealed class AddReceiptImageToExpenseCommandHandler
     : ICommandHandler<AddReceiptImageToExpenseCommand, ResponseExpenses>
 {
-    private readonly IAppDbContext _db;
+    private readonly IWriteDbContext _db;
     private readonly IReceiptStorage _storage;
 
-    public AddReceiptImageToExpenseCommandHandler(IAppDbContext db, IReceiptStorage storage)
+    public AddReceiptImageToExpenseCommandHandler(IWriteDbContext db, IReceiptStorage storage)
     {
         _db = db;
         _storage = storage;

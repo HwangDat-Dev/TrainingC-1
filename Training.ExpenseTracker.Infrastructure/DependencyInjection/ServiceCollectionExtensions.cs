@@ -27,7 +27,17 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<AppDbContext>(opt =>
             opt.UseNpgsql(connectionString));
 
-        services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
+        // services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
+        
+        services.AddDbContext<AppDbContext>(opt =>
+            opt.UseNpgsql(config.GetConnectionString("WriteConnection")));
+
+        services.AddDbContext<ReadDbContext>(opt =>
+            opt.UseNpgsql(config.GetConnectionString("ReadConnection")));
+        
+        services.AddScoped<IWriteDbContext>(sp => sp.GetRequiredService<AppDbContext>());
+        services.AddScoped<IReadDbContext>(sp => sp.GetRequiredService<ReadDbContext>());
+
         services.AddScoped<IAuthService, AuthService>();
         // services.AddScoped<IExpenseService, ExpenseService>();
         

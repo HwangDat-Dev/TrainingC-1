@@ -4,12 +4,15 @@ using Training.ExpenseTracker.Domain.Entities;
 
 namespace Training.ExpenseTracker.Infrastructure.Persistence;
 
-public class AppDbContext : DbContext, IAppDbContext
+public class AppDbContext : DbContext, IWriteDbContext, IReadDbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<User> Users => Set<User>();
     public DbSet<Expense> Expenses => Set<Expense>();
+
+    IQueryable<User> IReadDbContext.Users => Set<User>().AsNoTracking();
+    IQueryable<Expense> IReadDbContext.Expenses => Set<Expense>().AsNoTracking();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
