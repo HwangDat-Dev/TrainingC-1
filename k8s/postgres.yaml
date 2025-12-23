@@ -5,7 +5,7 @@ metadata:
   namespace: training
 type: Opaque
 data:
-  POSTGRES_PASSWORD: VGllbmRhdDc4OA== # base64("Tiendat788")
+  POSTGRES_PASSWORD: VGllbmRhdDc4OA==
 
 ---
 apiVersion: v1
