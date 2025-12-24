@@ -6,7 +6,7 @@ metadata:
 data:
   ConnectionStrings__WriteConnection: "Host=expense-pg-rw;Port=5432;Database=training1;Username=app;Password=Tiendat788"
   ConnectionStrings__ReadConnection: "Host=expense-pg-ro;Port=5432;Database=training1;Username=app;Password=Tiendat788"
-  Jwt__Secret: "YourSuperSecretKeyAtLeast32CharactersLong123!"
+  Jwt__Secret: "MSDFAJSD9832BZXF78ASDF6YSD78FBDSMSDIF23948DNFKSD8723234239847BKSDF!"
   Jwt__Issuer: "ExpenseTracker"
   Jwt__Audience: "ExpenseTrackerUsers"
   Jwt__ExpiryMinutes: "60"
