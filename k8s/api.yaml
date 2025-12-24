@@ -4,8 +4,12 @@ metadata:
   name: api-config
   namespace: training
 data:
-  # Kết nối tới Postgres trong cluster
-  ConnectionStrings__DefaultConnection: "Host=postgres-service;Port=5432;Database=training1;Username=postgres;Password=Tiendat788"
+  ConnectionStrings__WriteConnection: "Host=expense-pg-rw;Port=5432;Database=training1;Username=app;Password=Tiendat788"
+  ConnectionStrings__ReadConnection: "Host=expense-pg-ro;Port=5432;Database=training1;Username=app;Password=Tiendat788"
+  Jwt__Secret: "MSDFAJSD9832BZXF78ASDF6YSD78FBDSMSDIF23948DNFKSD8723234239847BKSDF!"
+  Jwt__Issuer: "ExpenseTracker"
+  Jwt__Audience: "ExpenseTrackerUsers"
+  Jwt__ExpiryMinutes: "60"
 
 ---
 apiVersion: v1
@@ -30,7 +34,7 @@ metadata:
   name: expense-api
   namespace: training
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: expense-api
@@ -50,10 +54,52 @@ spec:
               value: "Production"
             - name: ASPNETCORE_URLS
               value: "http://+:8080"
-            # Override connection string từ ConfigMap
-            - name: ConnectionStrings__DefaultConnection
+            - name: ConnectionStrings__WriteConnection
               valueFrom:
                 configMapKeyRef:
                   name: api-config
-                  key: ConnectionStrings__DefaultConnection
-
+                  key: ConnectionStrings__WriteConnection
+            - name: ConnectionStrings__ReadConnection
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: ConnectionStrings__ReadConnection
+            - name: Jwt__Secret
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: Jwt__Secret
+            - name: Jwt__Issuer
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: Jwt__Issuer
+            - name: Jwt__Audience
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: Jwt__Audience
+            - name: Jwt__ExpiryMinutes
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: Jwt__ExpiryMinutes
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"

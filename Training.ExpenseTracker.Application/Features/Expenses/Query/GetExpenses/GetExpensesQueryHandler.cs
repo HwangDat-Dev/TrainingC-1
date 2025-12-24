@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Training.ExpenseTracker.Application.Abstractions;
 using Training.ExpenseTracker.Application.DTO;
 using Training.ExpenseTracker.Application.DTO.Expenses;
@@ -9,15 +10,19 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpense
 public sealed class GetExpensesQueryHandler
     : IQueryHandler<GetExpensesQuery, PagedResult<ResponseExpenses>>
 {
-    private readonly IAppDbContext _db;
+    private readonly IReadDbContext _db;
+    private readonly ILogger<GetExpensesQueryHandler> _logger;
 
-    public GetExpensesQueryHandler(IAppDbContext db)
+    public GetExpensesQueryHandler(IReadDbContext db, ILogger<GetExpensesQueryHandler> logger)
     {
         _db = db;
+        _logger = logger;
     }
 
     public async Task<PagedResult<ResponseExpenses>> Handle(GetExpensesQuery query, CancellationToken ct)
     {
+        _logger.LogInformation("[DB:READ] GetExpenses for user: {UserId}", query.UserId);
+        
         var req = query.Request;
 
         var q = _db.Expenses

@@ -16,7 +16,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8232460c-de35-4559-bfb5-bc38854aabcf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Solution1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Training.ExpenseTracker.WebApi/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +107,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;216f41ae&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;uat&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/hoangdat/Raffles/LuyenTap/Solution1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -267,6 +266,7 @@
       <workItem from="1766239472558" duration="15588000" />
       <workItem from="1766259942502" duration="95000" />
       <workItem from="1766396752032" duration="664000" />
+      <workItem from="1766559222088" duration="887000" />
     </task>
     <servers />
   </component>

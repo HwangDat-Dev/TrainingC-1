@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Training.ExpenseTracker.Application.Abstractions;
 using Training.ExpenseTracker.Application.DTO.Expenses;
 using Training.ExpenseTracker.Application.Interfaces;
@@ -9,15 +10,19 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Commands.CreateE
 public sealed class CreateExpenseCommandHandler
     : ICommandHandler<CreateExpenseCommand, ResponseExpenses>
 {
-    private readonly IAppDbContext _db;
+    private readonly IWriteDbContext _db;
+    private readonly ILogger<CreateExpenseCommandHandler> _logger;
 
-    public CreateExpenseCommandHandler(IAppDbContext db)
+    public CreateExpenseCommandHandler(IWriteDbContext db, ILogger<CreateExpenseCommandHandler> logger)
     {
         _db = db;
+        _logger = logger;
     }
 
     public async Task<ResponseExpenses> Handle(CreateExpenseCommand command, CancellationToken ct)
     {
+        _logger.LogInformation("[DB:WRITE] CreateExpense for user: {UserId}", command.UserId);
+        
         var req = command.Request;
 
         if (string.IsNullOrWhiteSpace(req.Category))

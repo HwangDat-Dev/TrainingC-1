@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Training.ExpenseTracker.Application.Abstractions;
 using Training.ExpenseTracker.Application.DTO.Expenses;
 using Training.ExpenseTracker.Application.Interfaces;
@@ -6,15 +7,19 @@ using Training.ExpenseTracker.Application.Interfaces;
 namespace Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseSummary;
 
 public sealed class GetExpenseSummaryQueryHandler : IQueryHandler<GetExpenseSummaryQuery, ExpenseSummaryResponse> {
-    private readonly IAppDbContext _db;
+    private readonly IReadDbContext _db;
+    private readonly ILogger<GetExpenseSummaryQueryHandler> _logger;
 
-    public GetExpenseSummaryQueryHandler(IAppDbContext db)
+    public GetExpenseSummaryQueryHandler(IReadDbContext db, ILogger<GetExpenseSummaryQueryHandler> logger)
     {
         _db = db;
+        _logger = logger;
     }
 
     public async Task<ExpenseSummaryResponse> Handle(GetExpenseSummaryQuery query, CancellationToken ct)
     {
+        _logger.LogInformation("[DB:READ] GetExpenseSummary for user: {UserId}", query.UserId);
+        
         var nowUtc = DateTime.UtcNow;
 
         var monthStartUtc = new DateTime(nowUtc.Year, nowUtc.Month, 1, 0, 0, 0, DateTimeKind.Utc);
