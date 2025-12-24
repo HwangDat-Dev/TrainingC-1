@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Training.ExpenseTracker.Application.Abstractions;
 using Training.ExpenseTracker.Application.DTO.Expenses;
 using Training.ExpenseTracker.Application.Interfaces;
@@ -8,15 +9,19 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Commands.UpdateE
 public sealed class UpdateExpenseCommandHandler
     : ICommandHandler<UpdateExpenseCommand, ResponseExpenses>
 {
-    private readonly IAppDbContext _db;
+    private readonly IWriteDbContext _db;
+    private readonly ILogger<UpdateExpenseCommandHandler> _logger;
 
-    public UpdateExpenseCommandHandler(IAppDbContext db)
+    public UpdateExpenseCommandHandler(IWriteDbContext db, ILogger<UpdateExpenseCommandHandler> logger)
     {
         _db = db;
+        _logger = logger;
     }
 
     public async Task<ResponseExpenses> Handle(UpdateExpenseCommand command, CancellationToken ct)
     {
+        _logger.LogInformation("[DB:WRITE] UpdateExpense: {ExpenseId}", command.ExpenseId);
+        
         var req = command.Request;
 
         if (req.Category == null)

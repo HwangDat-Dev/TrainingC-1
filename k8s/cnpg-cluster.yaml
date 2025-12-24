@@ -1,0 +1,30 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: expense-pg
+  namespace: training
+spec:
+  instances: 2
+
+  storage:
+    size: 1Gi
+
+  bootstrap:
+    initdb:
+      database: training1
+      owner: app
+      secret:
+        name: expense-pg-credentials
+
+  postgresql:
+    parameters:
+      max_connections: "100"
+      shared_buffers: "128MB"
+
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"

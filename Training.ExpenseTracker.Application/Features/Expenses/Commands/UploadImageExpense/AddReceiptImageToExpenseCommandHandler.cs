@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Training.ExpenseTracker.Application.Abstractions;
 using Training.ExpenseTracker.Application.DTO.Expenses;
 using Training.ExpenseTracker.Application.Interfaces;
@@ -8,17 +9,21 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Commands.UploadI
 public sealed class AddReceiptImageToExpenseCommandHandler
     : ICommandHandler<AddReceiptImageToExpenseCommand, ResponseExpenses>
 {
-    private readonly IAppDbContext _db;
+    private readonly IWriteDbContext _db;
     private readonly IReceiptStorage _storage;
+    private readonly ILogger<AddReceiptImageToExpenseCommandHandler> _logger;
 
-    public AddReceiptImageToExpenseCommandHandler(IAppDbContext db, IReceiptStorage storage)
+    public AddReceiptImageToExpenseCommandHandler(IWriteDbContext db, IReceiptStorage storage, ILogger<AddReceiptImageToExpenseCommandHandler> logger)
     {
         _db = db;
         _storage = storage;
+        _logger = logger;
     }
 
     public async Task<ResponseExpenses> Handle(AddReceiptImageToExpenseCommand command, CancellationToken ct)
     {
+        _logger.LogInformation("[DB:WRITE] UploadImage for expense: {ExpenseId}", command.ExpenseId);
+        
         var expense = await _db.Expenses
             .FirstOrDefaultAsync(x => x.Id == command.ExpenseId && x.UserId == command.UserId, ct);
 

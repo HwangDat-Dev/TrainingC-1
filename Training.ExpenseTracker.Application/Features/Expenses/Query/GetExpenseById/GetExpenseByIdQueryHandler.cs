@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Training.ExpenseTracker.Application.Abstractions;
 using Training.ExpenseTracker.Application.DTO.Expenses;
 using Training.ExpenseTracker.Application.Interfaces;
@@ -8,15 +9,19 @@ namespace Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpense
 public sealed class GetExpenseByIdQueryHandler
     : IQueryHandler<GetExpenseByIdQuery, ResponseExpenses>
 {
-    private readonly IAppDbContext _db;
+    private readonly IReadDbContext _db;
+    private readonly ILogger<GetExpenseByIdQueryHandler> _logger;
 
-    public GetExpenseByIdQueryHandler(IAppDbContext db)
+    public GetExpenseByIdQueryHandler(IReadDbContext db, ILogger<GetExpenseByIdQueryHandler> logger)
     {
         _db = db;
+        _logger = logger;
     }
 
     public async Task<ResponseExpenses> Handle(GetExpenseByIdQuery query, CancellationToken ct)
     {
+        _logger.LogInformation("[DB:READ] GetExpenseById: {ExpenseId}", query.ExpenseId);
+        
         var entity = await _db.Expenses
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == query.ExpenseId && x.UserId == query.UserId, ct);

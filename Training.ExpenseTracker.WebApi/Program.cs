@@ -9,8 +9,6 @@ using Training.ExpenseTracker.Infrastructure.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -56,7 +54,13 @@ builder.Services
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
+var writeConnection = builder.Configuration.GetConnectionString("WriteConnection") 
+                      ?? builder.Configuration.GetConnectionString("DefaultConnection");
+var readConnection = builder.Configuration.GetConnectionString("ReadConnection") ?? writeConnection;
 
+builder.Services.AddHealthChecks()
+    .AddNpgSql(writeConnection!, name: "postgres-write", tags: new[] { "db", "write" })
+    .AddNpgSql(readConnection!, name: "postgres-read", tags: new[] { "db", "read" });
 
 var jwt = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>()!;
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -76,7 +80,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -85,7 +88,6 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
-// Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
 
@@ -93,5 +95,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapHealthChecks("/health");
 
 app.Run();

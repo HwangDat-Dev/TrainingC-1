@@ -3,7 +3,7 @@ using Training.ExpenseTracker.Domain.Entities;
 
 namespace Training.ExpenseTracker.Application.Interfaces;
 
-public interface IAppDbContext
+public interface IWriteDbContext
 {
     DbSet<User> Users { get; }
     DbSet<Expense> Expenses { get; }

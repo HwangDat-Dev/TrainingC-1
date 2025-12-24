@@ -10,23 +10,14 @@ using Training.ExpenseTracker.Application.Features.Expenses.Commands.UploadImage
 using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseById;
 using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenses;
 using Training.ExpenseTracker.Application.Features.Expenses.Query.GetExpenseSummary;
-using Training.ExpenseTracker.Application.Interfaces;
 
 namespace WebApplication1.Controllers;
-
-
 
 [ApiController]
 [Route("api/expenses")]
 [Authorize]
 public class ExpensesController : ControllerBase
 {
-    // private readonly IExpenseService _expenseService;
-    //
-    // public ExpensesController(IExpenseService expenseService)
-    // {
-    //     _expenseService = expenseService;
-    // }
 
     [HttpPost]
     public async Task<ActionResult<ResponseExpenses>> Create(
